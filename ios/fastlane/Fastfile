@@ -52,6 +52,16 @@ platform :ios do
       use_automatic_signing: false,
       profile_name: "match AppStore #{DEVELOPER_APP_IDENTIFIER}",
       bundle_identifier: DEVELOPER_APP_IDENTIFIER,
+      targets: [DEVELOPER_APP_IDENTIFIER],
+      code_sign_identity: "iPhone Distribution",
+      team_id: APPLE_TEAM_ID
+    )
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      profile_name: "match AppStore #{DEVELOPER_APP_IDENTIFIER}",
+      bundle_identifier: "#{DEVELOPER_APP_IDENTIFIER}.StatusWidget",
+      targets: ["#{DEVELOPER_APP_IDENTIFIER}.StatusWidget"],
       code_sign_identity: "iPhone Distribution",
       team_id: APPLE_TEAM_ID
     )
